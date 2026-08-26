@@ -623,6 +623,91 @@ html[dir="rtl"] .app-btn span, html[dir="rtl"] .device-btn span { text-align: ri
 
 
 /* ==========================================================
+   HEARING AID TYPES
+   ========================================================== */
+.types-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.type-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+}
+.type-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--teal);
+}
+.type-visual {
+  height: 200px;
+  background: #FAFAFA;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid var(--line);
+}
+.type-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition);
+}
+.type-card:hover .type-visual img {
+  transform: scale(1.06);
+}
+.type-badge-pill {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(6px);
+  color: var(--teal);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+html[dir="rtl"] .type-badge-pill { left: auto; right: 14px; }
+.type-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.type-body h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+.type-body p {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+.type-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+.type-tag {
+  font-size: 0.75rem;
+  color: var(--teal);
+  background: rgba(61,94,107,0.08);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+/* ==========================================================
    ABOUT
    ========================================================== */
 .about {
@@ -1050,6 +1135,7 @@ html[dir="rtl"] .footer-col h4 { letter-spacing: 0; text-transform: none; }
 @media (max-width: 1024px) {
   .solutions-grid { grid-template-columns: repeat(2, 1fr); }
   .solutions-combo-grid { grid-template-columns: 1fr; }
+  .types-grid { grid-template-columns: 1fr; }
   .brands-row-compact { grid-template-columns: 1fr; }
 }
 
@@ -1090,6 +1176,7 @@ html[dir="rtl"] .footer-col h4 { letter-spacing: 0; text-transform: none; }
   .ql-item:last-child { border-bottom: none; }
 
   .about-grid { grid-template-columns: 1fr; }
+  .types-grid { grid-template-columns: 1fr; }
   .solutions-combo-grid { grid-template-columns: 1fr; }
   .combo-brochure-card { flex-direction: column; text-align: center; }
   .combo-cta-card { text-align: center; align-items: center; }
