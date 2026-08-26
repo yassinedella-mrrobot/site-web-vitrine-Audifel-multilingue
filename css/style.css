@@ -483,14 +483,14 @@ html[dir="rtl"] .trust-item strong { font-family: 'Cairo', sans-serif; }
 .solution-card p { color: var(--ink-soft); font-size: 0.92rem; line-height: 1.6; }
 
 /* ---- App Store Links ---- */
-.app-links {
+.app-links, .device-links {
   display: flex;
   flex-direction: column;
   gap: 8px;
   margin-top: auto;
   padding-top: 16px;
 }
-.app-btn {
+.app-btn, .device-btn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -503,14 +503,14 @@ html[dir="rtl"] .trust-item strong { font-family: 'Cairo', sans-serif; }
   transition: all var(--transition);
   text-decoration: none;
 }
-.app-btn:hover {
+.app-btn:hover, .device-btn:hover {
   background: var(--teal);
   color: var(--white);
   border-color: var(--teal);
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);
 }
-.app-btn:hover small {
+.app-btn:hover small, .device-btn:hover small {
   color: var(--accent-light);
 }
 .app-icon-img {
@@ -520,18 +520,27 @@ html[dir="rtl"] .trust-item strong { font-family: 'Cairo', sans-serif; }
   flex-shrink: 0;
   box-shadow: 0 1px 4px rgba(0,0,0,0.15);
 }
-.app-btn span {
+.device-thumb-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+.app-btn span, .device-btn span {
   display: flex;
   flex-direction: column;
   line-height: 1.2;
   text-align: left;
 }
-html[dir="rtl"] .app-btn span { text-align: right; }
-.app-btn strong {
+html[dir="rtl"] .app-btn span, html[dir="rtl"] .device-btn span { text-align: right; }
+.app-btn strong, .device-btn strong {
   font-size: 0.82rem;
   font-weight: 600;
 }
-.app-btn small {
+.app-btn small, .device-btn small {
   font-size: 0.68rem;
   opacity: 0.75;
 }
