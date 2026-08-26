@@ -997,13 +997,14 @@ footer {
   margin-bottom: 48px;
 }
 .footer-logo-badge {
-  background: rgba(255,255,255,0.08);
+  background: var(--white);
   display: inline-block;
-  padding: 12px 18px;
+  padding: 8px 14px;
   border-radius: 12px;
   margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
-.footer-logo-img { height: 54px; width: auto; display: block; }
+.footer-logo-img { height: 50px; width: auto; display: block; }
 .footer-tagline { max-width: 280px; font-size: 0.9rem; line-height: 1.6; }
 .footer-col h4 {
   font-size: 0.82rem;
