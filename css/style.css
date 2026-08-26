@@ -505,10 +505,15 @@ html[dir="rtl"] .trust-item strong { font-family: 'Cairo', sans-serif; }
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);
 }
-.app-btn .play-icon {
-  width: 18px;
-  height: 18px;
+.app-btn:hover small {
+  color: var(--accent-light);
+}
+.app-icon-img {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
   flex-shrink: 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
 }
 .app-btn span {
   display: flex;

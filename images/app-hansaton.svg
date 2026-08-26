@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#E60028"/>
+  <!-- Hansaton stylized 'h' symbol -->
+  <path d="M22 16v32h6V34c0-3 2.5-5 5.5-5s5.5 2 5.5 5v14h6V33c0-6-4.5-10-10.5-10-4 0-7.5 2-9.5 5V16h-6z" fill="#FFFFFF"/>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#3D5E6B"/>
+  <!-- Audifon stylized icon with white text and red dot -->
+  <text x="32" y="38" font-family="'Inter', sans-serif" font-weight="700" font-size="28" fill="#FFFFFF" text-anchor="middle">a</text>
+  <circle cx="44" cy="20" r="5" fill="#c8102e"/>
+</svg>
