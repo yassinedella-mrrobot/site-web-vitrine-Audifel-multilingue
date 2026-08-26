@@ -426,21 +426,24 @@ html[dir="rtl"] .trust-item strong { font-family: 'Cairo', sans-serif; }
 .center { text-align: center; margin-left: auto; margin-right: auto; }
 
 /* ==========================================================
-   SOLUTIONS GRID
+   SOLUTIONS & COMBO STRIP
    ========================================================== */
 .solutions-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
+  margin-bottom: 40px;
 }
 .solution-card {
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 32px 26px;
+  padding: 32px 24px;
   transition: all var(--transition);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .solution-card::before {
   content: '';
@@ -459,17 +462,24 @@ html[dir="rtl"] .trust-item strong { font-family: 'Cairo', sans-serif; }
 }
 .solution-card:hover::before { transform: scaleX(1); }
 .solution-icon {
-  width: 56px; height: 56px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, rgba(61,94,107,0.08), rgba(61,94,107,0.15));
+  width: 58px; height: 58px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(61,94,107,0.06), rgba(61,94,107,0.14));
   color: var(--teal);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  border: 1px solid rgba(61,94,107,0.12);
+  transition: all var(--transition);
+}
+.solution-card:hover .solution-icon {
+  background: var(--teal);
+  color: var(--white);
+  transform: scale(1.06);
 }
 .solution-icon svg { width: 28px; height: 28px; }
-.solution-card h3 { font-size: 1.1rem; margin-bottom: 10px; }
+.solution-card h3 { font-size: 1.15rem; margin-bottom: 10px; }
 .solution-card p { color: var(--ink-soft); font-size: 0.92rem; line-height: 1.6; }
 
 /* ---- App Store Links ---- */
@@ -477,7 +487,8 @@ html[dir="rtl"] .trust-item strong { font-family: 'Cairo', sans-serif; }
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: 18px;
+  margin-top: auto;
+  padding-top: 16px;
 }
 .app-btn {
   display: inline-flex;
@@ -523,6 +534,82 @@ html[dir="rtl"] .app-btn span { text-align: right; }
 .app-btn small {
   font-size: 0.68rem;
   opacity: 0.75;
+}
+
+/* ---- Solutions Combo (Brochure + CTA) ---- */
+.solutions-combo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+.combo-brochure-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 32px 36px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+}
+.combo-brochure-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--teal);
+}
+.combo-brochure-thumb {
+  width: 105px; height: 115px;
+  border-radius: 14px;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: #FAFAFA;
+  border: 1px solid var(--line);
+}
+.combo-brochure-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.combo-brochure-text h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+.combo-brochure-text p {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+.combo-cta-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  padding: 36px 40px;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--teal-deeper) 0%, var(--teal) 60%, var(--teal-dark) 100%);
+  box-shadow: var(--shadow-sm);
+}
+.combo-cta-card h3 {
+  color: var(--white);
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+}
+.combo-cta-card p {
+  color: rgba(255,255,255,0.85);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.combo-cta-card .btn-primary {
+  align-self: flex-start;
+  background: var(--accent);
+  color: var(--white);
+}
+.combo-cta-card .btn-primary:hover {
+  background: var(--accent-light);
 }
 
 
@@ -731,33 +818,33 @@ html[dir="rtl"] .steps-grid .step-card:not(:last-child)::after {
 .resource-text p { color: var(--ink-soft); font-size: 0.94rem; margin-bottom: 18px; line-height: 1.7; }
 
 /* ==========================================================
-   PARTNERS (Single Row Compact)
+   PARTNERS (Single Row Enlarged & Compact)
    ========================================================== */
 .brands-row-compact {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 28px;
 }
 .brand-compact-card {
   background: var(--white);
   border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 16px 20px;
+  border-radius: var(--radius-lg);
+  padding: 22px 26px;
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
   box-shadow: var(--shadow-sm);
   transition: all var(--transition);
 }
 .brand-compact-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-md);
   border-color: var(--teal);
 }
 .brand-compact-thumb {
-  width: 110px;
-  height: 80px;
-  border-radius: 10px;
+  width: 140px;
+  height: 98px;
+  border-radius: 12px;
   background: #FAFAFA;
   overflow: hidden;
   flex-shrink: 0;
@@ -770,6 +857,10 @@ html[dir="rtl"] .steps-grid .step-card:not(:last-child)::after {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform var(--transition);
+}
+.brand-compact-card:hover .brand-compact-thumb img {
+  transform: scale(1.06);
 }
 .brand-compact-content {
   flex: 1;
@@ -778,31 +869,31 @@ html[dir="rtl"] .steps-grid .step-card:not(:last-child)::after {
 .brand-compact-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 6px;
+  gap: 12px;
+  margin-bottom: 8px;
 }
 .brand-compact-logo {
-  height: 22px;
-  max-width: 110px;
+  height: 26px;
+  max-width: 130px;
   object-fit: contain;
   display: block;
 }
 .brand-compact-badge {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 600;
   color: var(--teal);
   background: rgba(61,94,107,0.08);
-  padding: 2px 8px;
+  padding: 3px 10px;
   border-radius: 999px;
 }
 .brand-compact-content h3 {
-  font-size: 1rem;
-  margin-bottom: 3px;
+  font-size: 1.12rem;
+  margin-bottom: 5px;
 }
 .brand-compact-content p {
   color: var(--ink-soft);
-  font-size: 0.82rem;
-  line-height: 1.45;
+  font-size: 0.88rem;
+  line-height: 1.55;
   margin: 0;
 }
 
@@ -948,6 +1039,7 @@ html[dir="rtl"] .footer-col h4 { letter-spacing: 0; text-transform: none; }
 /* ---- Tablet ---- */
 @media (max-width: 1024px) {
   .solutions-grid { grid-template-columns: repeat(2, 1fr); }
+  .solutions-combo-grid { grid-template-columns: 1fr; }
   .brands-row-compact { grid-template-columns: 1fr; }
 }
 
@@ -988,6 +1080,10 @@ html[dir="rtl"] .footer-col h4 { letter-spacing: 0; text-transform: none; }
   .ql-item:last-child { border-bottom: none; }
 
   .about-grid { grid-template-columns: 1fr; }
+  .solutions-combo-grid { grid-template-columns: 1fr; }
+  .combo-brochure-card { flex-direction: column; text-align: center; }
+  .combo-cta-card { text-align: center; align-items: center; }
+  .combo-cta-card .btn-primary { align-self: center; }
   .brands-row-compact { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .two-col { grid-template-columns: 1fr; }
