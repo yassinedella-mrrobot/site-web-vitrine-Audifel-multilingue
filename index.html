@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">AUDIFEL — Centre de correction auditive</title>
+  <meta id="page-desc" name="description" content="AUDIFEL, votre centre de confiance pour l'appareillage auditif. Dépistage auditif gratuit et accompagnement personnalisé.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav">
+      <a href="#" class="logo">
+        <img src="images/audifel-logo.svg" alt="AUDIFEL" class="logo-img">
+      </a>
+      <nav class="links">
+        <a href="#apropos" data-i18n="nav_about">À propos</a>
+        <a href="#solutions" data-i18n="nav_solutions">Nos solutions</a>
+        <a href="#etapes" data-i18n="nav_steps">Comment ça marche</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="tel:+213000000000" class="btn btn-ghost" data-i18n="nav_call">Appelez-nous</a>
+        <a href="#contact" class="btn btn-primary" data-i18n="nav_rdv">Prendre rendez-vous</a>
+        <div class="lang-switch">
+          <button class="lang-btn" id="langBtn" type="button" aria-label="Changer de langue">
+            <span class="globe">🌐</span><span id="langBtnLabel">FR</span>
+          </button>
+          <div class="lang-menu" id="langMenu">
+            <div class="lang-option active" data-lang="fr"><span class="lang-flag">🇫🇷</span> Français</div>
+            <div class="lang-option" data-lang="en"><span class="lang-flag">🇬🇧</span> English</div>
+            <div class="lang-option" data-lang="ar"><span class="lang-flag">🇩🇿</span> العربية</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-inner">
+        <span class="eyebrow" data-i18n="hero_eyebrow">Centre de correction auditive</span>
+        <h1 data-i18n-html="hero_h1">Tout ce dont une bonne <em>audition</em> a besoin.</h1>
+        <p class="lead" data-i18n="hero_lead">AUDIFEL vous accompagne à chaque étape : dépistage auditif gratuit, conseils personnalisés et appareils auditifs adaptés à votre quotidien.</p>
+        <div class="hero-actions">
+          <a href="#test" class="btn btn-primary" data-i18n="hero_cta1">Faire mon test auditif gratuit</a>
+          <a href="#apropos" class="btn btn-ghost" data-i18n="hero_cta2">Découvrir AUDIFEL</a>
+        </div>
+        <div class="trust-row">
+          <div class="trust-item"><strong data-i18n="trust1_num">100%</strong><span data-i18n="trust1_label">Dépistage gratuit</span></div>
+          <div class="trust-item"><strong data-i18n="trust2_num">Sur mesure</strong><span data-i18n="trust2_label">Conseil personnalisé</span></div>
+          <div class="trust-item"><strong data-i18n="trust3_num">Proximité</strong><span data-i18n="trust3_label">Un centre près de chez vous</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quicklinks Section -->
+  <section class="quicklinks">
+    <div class="wrap">
+      <div class="ql-grid">
+        <a class="ql-item" href="#test">
+          <div class="ql-icon">🎧</div>
+          <div><strong data-i18n="ql1_title">Test auditif en ligne</strong><span data-i18n="ql1_p">Évaluez votre audition en quelques minutes</span></div>
+        </a>
+        <a class="ql-item" href="#solutions">
+          <div class="ql-icon">🦻</div>
+          <div><strong data-i18n="ql2_title">Nos appareils auditifs</strong><span data-i18n="ql2_p">Des solutions adaptées à chaque besoin</span></div>
+        </a>
+        <a class="ql-item" href="#contact">
+          <div class="ql-icon">💬</div>
+          <div><strong data-i18n="ql3_title">Assistance</strong><span data-i18n="ql3_p">Une question ? Notre équipe vous répond</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section id="solutions">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow" data-i18n="solutions_eyebrow">Nos solutions</span>
+        <h2 data-i18n="solutions_h2">Une solution pour chaque besoin auditif</h2>
+        <p data-i18n="solutions_p">Du premier dépistage à l'entretien de votre appareil, AUDIFEL vous accompagne sur toute la durée.</p>
+      </div>
+      <div class="solutions-grid">
+        <div class="solution-card">
+          <div class="solution-icon">🎧</div>
+          <h3 data-i18n="sol1_title">Dépistage auditif</h3>
+          <p data-i18n="sol1_p">Test gratuit et sans engagement, réalisé par un professionnel.</p>
+        </div>
+        <div class="solution-card">
+          <div class="solution-icon">🦻</div>
+          <h3 data-i18n="sol2_title">Appareils auditifs</h3>
+          <p data-i18n="sol2_p">Des appareils sur mesure, discrets et adaptés à votre quotidien.</p>
+        </div>
+        <div class="solution-card">
+          <div class="solution-icon">📱</div>
+          <h3 data-i18n="sol3_title">Application mobile</h3>
+          <p data-i18n="sol3_p">Réglez et contrôlez votre appareil directement depuis votre smartphone.</p>
+        </div>
+        <div class="solution-card">
+          <div class="solution-icon">🔋</div>
+          <h3 data-i18n="sol4_title">Entretien & accessoires</h3>
+          <p data-i18n="sol4_p">Piles, chargeurs et nettoyage pour prolonger la vie de votre appareil.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="apropos">
+    <div class="wrap about-grid">
+      <div class="about-visual">
+        <div class="ring r1"></div>
+        <div class="ring r2"></div>
+        <div class="ring r3"></div>
+      </div>
+      <div class="about-text">
+        <span class="eyebrow" data-i18n="about_eyebrow">Qui sommes-nous</span>
+        <h2 style="margin-bottom:18px; margin-top:16px;" data-i18n="about_h2">Un accompagnement humain, à chaque étape de votre audition</h2>
+        <p data-i18n="about_p1">Chez AUDIFEL, nous pensons que bien entendre change tout : les conversations en famille, les rires, la musique, les petits bruits du quotidien. C'est pourquoi nous mettons un point d'honneur à offrir un accompagnement attentif, sans jargon technique et sans précipitation.</p>
+        <p data-i18n="about_p2">Nos audioprothésistes prennent le temps d'écouter vos besoins réels avant de vous orienter vers la solution la plus adaptée — jamais l'inverse. Chaque appareil est choisi pour votre mode de vie, votre budget et votre confort.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner / Test -->
+  <section id="test">
+    <div class="wrap">
+      <div class="cta-banner">
+        <div>
+          <h2 data-i18n="test_h2">Un doute sur votre audition ?</h2>
+          <p data-i18n="test_p">Faites un dépistage auditif gratuit et sans engagement dans l'un de nos centres. Résultat expliqué clairement, le jour même.</p>
+        </div>
+        <a href="#contact" class="btn btn-primary" data-i18n="test_cta">Réserver mon créneau</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps Section -->
+  <section id="etapes">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow" data-i18n="steps_eyebrow">Notre méthode</span>
+        <h2 data-i18n="steps_h2">Comment ça marche</h2>
+        <p data-i18n="steps_p">Trois étapes simples, du premier contact à votre nouvel appareil auditif.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h3 data-i18n="step1_title">Dépistage auditif</h3>
+          <p data-i18n="step1_p">Un test rapide et gratuit réalisé par un professionnel, pour évaluer précisément votre audition.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h3 data-i18n="step2_title">Conseil personnalisé</h3>
+          <p data-i18n="step2_p">Nous vous présentons les solutions adaptées à votre perte auditive, votre quotidien et votre budget.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h3 data-i18n="step3_title">Essai & appareillage</h3>
+          <p data-i18n="step3_p">Vous testez votre appareil avant de vous engager, avec un suivi et des réglages sur mesure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources Section -->
+  <section>
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow" data-i18n="resources_eyebrow">Ressources</span>
+        <h2 data-i18n="resources_h2">Téléchargez notre brochure</h2>
+      </div>
+      <div class="resource-card">
+        <div class="resource-thumb">📄</div>
+        <div class="resource-text">
+          <h3 data-i18n="resources_card_title">Brochure produits AUDIFEL</h3>
+          <p data-i18n="resources_card_p">Découvrez l'ensemble de nos appareils auditifs et services en un seul document.</p>
+          <a href="#" class="btn btn-primary" data-i18n="resources_cta">Télécharger le PDF</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners Section -->
+  <section>
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow" data-i18n="partners_eyebrow">Nos marques</span>
+        <h2 data-i18n="partners_h2">Des marques partenaires de confiance</h2>
+      </div>
+      <div class="partners-row">
+        <div class="partner-pill partner-logo-container">
+          <img src="https://www.hansaton.com/content/experience-fragments/hansaton/int/en/site/header/for-consumers/_jcr_content/root/header_copy/logoDesktop.coreimg.png/1746163052851/ht-logo-horizontal-grey-rgb.png" alt="Hansaton" class="partner-img">
+        </div>
+        <div class="partner-pill">Audifon</div>
+      </div>
+      <p class="partners-note" data-i18n="partners_note">Logo Audifon en attente — envoyez-moi le fichier officiel et je l'intègre à la place du texte.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-info">
+        <span class="eyebrow" data-i18n="contact_eyebrow">Contact</span>
+        <h2 style="margin-top:16px;" data-i18n="contact_h2">Parlons de votre audition</h2>
+        <p data-i18n="contact_p">Notre équipe vous répond rapidement pour organiser votre dépistage gratuit ou répondre à vos questions.</p>
+        <div class="info-line">
+          <div class="info-icon">☎</div>
+          <div><strong data-i18n="info_phone_label">Téléphone</strong><span>+213 00 00 00 00</span></div>
+        </div>
+        <div class="info-line">
+          <div class="info-icon">✉</div>
+          <div><strong data-i18n="info_email_label">Email</strong><span>contact@audifel.dz</span></div>
+        </div>
+        <div class="info-line">
+          <div class="info-icon">📍</div>
+          <div><strong data-i18n="info_center_label">Centres</strong><span data-i18n="info_center_value">Adresse de votre centre, Algérie</span></div>
+        </div>
+      </div>
+      <form id="contactForm">
+        <div class="two-col">
+          <div class="field">
+            <label for="nom" data-i18n="form_name_label">Nom complet</label>
+            <input id="nom" type="text" data-i18n-placeholder="form_name_placeholder" placeholder="Votre nom" required>
+          </div>
+          <div class="field">
+            <label for="tel" data-i18n="form_phone_label">Téléphone</label>
+            <input id="tel" type="tel" data-i18n-placeholder="form_phone_placeholder" placeholder="+213 ..." required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="email" data-i18n="form_email_label">Email</label>
+          <input id="email" type="email" data-i18n-placeholder="form_email_placeholder" placeholder="vous@email.com">
+        </div>
+        <div class="field">
+          <label for="msg" data-i18n="form_msg_label">Message</label>
+          <textarea id="msg" data-i18n-placeholder="form_msg_placeholder" placeholder="Décrivez votre besoin ou demandez un rendez-vous..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" data-i18n="form_submit">Envoyer ma demande</button>
+        <p class="form-note" data-i18n="form_note">Réponse sous 24h ouvrées. Vos données restent confidentielles.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo-badge">
+            <img src="images/audifel-logo.svg" alt="AUDIFEL" class="footer-logo-img">
+          </div>
+          <p class="footer-tagline" data-i18n="footer_tagline">Centre de correction auditive à votre écoute, partout en Algérie.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_nav_title">Navigation</h4>
+          <a href="#apropos" data-i18n="nav_about">À propos</a>
+          <a href="#solutions" data-i18n="nav_solutions">Nos solutions</a>
+          <a href="#contact" data-i18n="nav_contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_social_title">Suivez-nous</h4>
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+          <a href="#">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer_copyright">© 2026 AUDIFEL. Tous droits réservés.</span>
+        <span data-i18n="footer_credit">Site conçu avec soin.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
