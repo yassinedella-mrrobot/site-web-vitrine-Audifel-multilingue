@@ -709,8 +709,7 @@ html[dir="rtl"] .steps-grid .step-card:not(:last-child)::after {
   box-shadow: var(--shadow-sm);
   border-color: var(--teal);
 }
-.partner-logo-container { padding: 18px 36px; }
-.partner-img { height: 30px; width: auto; }
+.partner-img { height: 36px; max-width: 150px; width: auto; object-fit: contain; display: block; }
 .partners-note {
   text-align: center;
   font-size: 0.82rem;
