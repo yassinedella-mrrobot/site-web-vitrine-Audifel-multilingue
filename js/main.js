@@ -1,4 +1,9 @@
-// Translations dictionary
+// =====================================================
+// AUDIFEL — Main JavaScript
+// i18n + Scroll Animations + Hamburger Menu + Header
+// =====================================================
+
+// --- Translations dictionary ---
 const translations = {
   fr: {
     page_title: "AUDIFEL — Centre de correction auditive",
@@ -25,6 +30,8 @@ const translations = {
     about_h2: "Un accompagnement humain, à chaque étape de votre audition",
     about_p1: "Chez AUDIFEL, nous pensons que bien entendre change tout : les conversations en famille, les rires, la musique, les petits bruits du quotidien. C'est pourquoi nous mettons un point d'honneur à offrir un accompagnement attentif, sans jargon technique et sans précipitation.",
     about_p2: "Nos audioprothésistes prennent le temps d'écouter vos besoins réels avant de vous orienter vers la solution la plus adaptée — jamais l'inverse. Chaque appareil est choisi pour votre mode de vie, votre budget et votre confort.",
+    badge_certified: "Certifié",
+    badge_experts: "Audioprothésistes experts",
     test_h2: "Un doute sur votre audition ?",
     test_p: "Faites un dépistage auditif gratuit et sans engagement dans l'un de nos centres. Résultat expliqué clairement, le jour même.",
     test_cta: "Réserver mon créneau",
@@ -78,6 +85,8 @@ const translations = {
     about_h2: "Human support, at every stage of your hearing journey",
     about_p1: "At AUDIFEL, we believe hearing well changes everything: family conversations, laughter, music, the small everyday sounds. That's why we take pride in offering attentive support, without technical jargon and without rushing.",
     about_p2: "Our hearing care specialists take the time to listen to your real needs before guiding you to the most suitable solution — never the other way around. Every device is chosen for your lifestyle, your budget, and your comfort.",
+    badge_certified: "Certified",
+    badge_experts: "Expert audiologists",
     test_h2: "Not sure about your hearing?",
     test_p: "Get a free, no-obligation hearing screening at one of our centers. Results explained clearly, the same day.",
     test_cta: "Book my slot",
@@ -131,6 +140,8 @@ const translations = {
     about_h2: "مرافقة إنسانية، في كل مرحلة من رحلتكم السمعية",
     about_p1: "في أوديفال، نؤمن أن حسن السمع يغيّر كل شيء: أحاديث العائلة، الضحك، الموسيقى، وأصوات الحياة اليومية الصغيرة. لهذا نحرص على تقديم مرافقة منتبهة، بدون مصطلحات تقنية معقدة وبدون تسرّع.",
     about_p2: "يأخذ أخصائيو السمع لدينا الوقت الكافي للاستماع إلى احتياجاتكم الحقيقية قبل توجيهكم نحو الحل الأنسب — وليس العكس. يتم اختيار كل جهاز بما يناسب أسلوب حياتكم وميزانيتكم وراحتكم.",
+    badge_certified: "معتمد",
+    badge_experts: "أخصائيو سمع خبراء",
     test_h2: "لديكم شك بخصوص سمعكم؟",
     test_p: "استفيدوا من فحص سمعي مجاني وبدون التزام في أحد مراكزنا. نتيجة واضحة، في نفس اليوم.",
     test_cta: "احجزوا موعدكم",
@@ -161,52 +172,56 @@ const translations = {
   }
 };
 
-function applyLanguage(lang){
+// --- i18n engine ---
+function applyLanguage(lang) {
   const t = translations[lang];
-  if(!t) return;
+  if (!t) return;
   document.documentElement.lang = lang;
   document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
-  
+
   const titleEl = document.getElementById('page-title');
-  if(titleEl) titleEl.textContent = t.page_title;
+  if (titleEl) titleEl.textContent = t.page_title;
   document.title = t.page_title;
-  
+
   const descEl = document.getElementById('page-desc');
-  if(descEl) descEl.setAttribute('content', t.page_desc);
+  if (descEl) descEl.setAttribute('content', t.page_desc);
 
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if(t[key] !== undefined) el.textContent = t[key];
+    if (t[key] !== undefined) el.textContent = t[key];
   });
   document.querySelectorAll('[data-i18n-html]').forEach(el => {
     const key = el.getAttribute('data-i18n-html');
-    if(t[key] !== undefined) el.innerHTML = t[key];
+    if (t[key] !== undefined) el.innerHTML = t[key];
   });
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
     const key = el.getAttribute('data-i18n-placeholder');
-    if(t[key] !== undefined) el.setAttribute('placeholder', t[key]);
+    if (t[key] !== undefined) el.setAttribute('placeholder', t[key]);
   });
 
   const labelEl = document.getElementById('langBtnLabel');
-  if(labelEl) labelEl.textContent = lang.toUpperCase();
-  
+  if (labelEl) labelEl.textContent = lang.toUpperCase();
+
   document.querySelectorAll('.lang-option').forEach(opt => {
     opt.classList.toggle('active', opt.getAttribute('data-lang') === lang);
   });
   window.__currentLang = lang;
 }
 
+// --- DOMContentLoaded ---
 document.addEventListener('DOMContentLoaded', () => {
+
+  // === Language switcher ===
   const langBtn = document.getElementById('langBtn');
   const langMenu = document.getElementById('langMenu');
-  
-  if(langBtn && langMenu) {
+
+  if (langBtn && langMenu) {
     langBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       langMenu.classList.toggle('open');
     });
     document.addEventListener('click', () => langMenu.classList.remove('open'));
-    
+
     document.querySelectorAll('.lang-option').forEach(opt => {
       opt.addEventListener('click', () => {
         applyLanguage(opt.getAttribute('data-lang'));
@@ -215,13 +230,97 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // === Contact form ===
   const form = document.getElementById('contactForm');
-  if(form) {
-    form.addEventListener('submit', function(e){
+  if (form) {
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
       alert(translations[window.__currentLang || 'fr'].form_alert);
     });
   }
 
+  // === Sticky header with scroll detection ===
+  const header = document.getElementById('mainHeader');
+  if (header) {
+    const onScroll = () => {
+      if (window.scrollY > 80) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  // === Hamburger menu ===
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+      document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+    });
+
+    // Close menu when clicking a nav link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  // === Scroll reveal animations (Intersection Observer) ===
+  const revealElements = document.querySelectorAll('.reveal');
+  if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          // Stagger animation for grid children
+          const delay = entry.target.closest('.solutions-grid, .steps-grid, .ql-grid, .partners-row')
+            ? Array.from(entry.target.parentNode.children).indexOf(entry.target) * 100
+            : 0;
+
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, delay);
+
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealElements.forEach(el => observer.observe(el));
+  } else {
+    // Fallback: show everything if IntersectionObserver is not supported
+    revealElements.forEach(el => el.classList.add('visible'));
+  }
+
+  // === Smooth scroll for anchor links ===
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      const target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        const headerHeight = header ? header.offsetHeight : 0;
+        const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // === Initialize language ===
   applyLanguage('fr');
 });
