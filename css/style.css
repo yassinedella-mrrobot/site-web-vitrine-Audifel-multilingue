@@ -731,98 +731,81 @@ html[dir="rtl"] .steps-grid .step-card:not(:last-child)::after {
 .resource-text p { color: var(--ink-soft); font-size: 0.94rem; margin-bottom: 18px; line-height: 1.7; }
 
 /* ==========================================================
-   PARTNERS
+   PARTNERS (Single Row Compact)
    ========================================================== */
-.partners-grid {
+.brands-row-compact {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px;
+  gap: 24px;
 }
-.brand-card {
+.brand-compact-card {
   background: var(--white);
   border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+  border-radius: var(--radius);
+  padding: 16px 20px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 20px;
   box-shadow: var(--shadow-sm);
   transition: all var(--transition);
 }
-.brand-card:hover {
-  transform: translateY(-6px);
+.brand-compact-card:hover {
+  transform: translateY(-3px);
   box-shadow: var(--shadow-md);
   border-color: var(--teal);
 }
-.brand-visual {
-  position: relative;
-  height: 230px;
+.brand-compact-thumb {
+  width: 110px;
+  height: 80px;
+  border-radius: 10px;
   background: #FAFAFA;
   overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid var(--line);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid var(--line);
 }
-.brand-visual img {
+.brand-compact-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition);
 }
-.brand-card:hover .brand-visual img {
-  transform: scale(1.05);
+.brand-compact-content {
+  flex: 1;
+  min-width: 0;
 }
-.brand-body {
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-.brand-header {
+.brand-compact-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 14px;
+  gap: 10px;
+  margin-bottom: 6px;
 }
-.brand-logo-img {
-  height: 30px;
-  max-width: 140px;
+.brand-compact-logo {
+  height: 22px;
+  max-width: 110px;
   object-fit: contain;
   display: block;
 }
-.brand-badge {
-  font-size: 0.75rem;
+.brand-compact-badge {
+  font-size: 0.7rem;
   font-weight: 600;
   color: var(--teal);
   background: rgba(61,94,107,0.08);
-  padding: 4px 10px;
+  padding: 2px 8px;
   border-radius: 999px;
 }
-.brand-body h3 {
-  font-size: 1.25rem;
-  margin-bottom: 8px;
+.brand-compact-content h3 {
+  font-size: 1rem;
+  margin-bottom: 3px;
 }
-.brand-body p {
+.brand-compact-content p {
   color: var(--ink-soft);
-  font-size: 0.92rem;
-  line-height: 1.6;
-  margin-bottom: 18px;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  margin: 0;
 }
-.brand-features {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: auto;
-}
-.brand-feat-pill {
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: var(--ink);
-  background: var(--bg);
-  border: 1px solid var(--line);
-  padding: 5px 12px;
-  border-radius: 999px;
-}
+
 
 
 /* ==========================================================
@@ -965,7 +948,7 @@ html[dir="rtl"] .footer-col h4 { letter-spacing: 0; text-transform: none; }
 /* ---- Tablet ---- */
 @media (max-width: 1024px) {
   .solutions-grid { grid-template-columns: repeat(2, 1fr); }
-  .partners-grid { grid-template-columns: 1fr; }
+  .brands-row-compact { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 860px) {
@@ -1005,11 +988,9 @@ html[dir="rtl"] .footer-col h4 { letter-spacing: 0; text-transform: none; }
   .ql-item:last-child { border-bottom: none; }
 
   .about-grid { grid-template-columns: 1fr; }
-  .partners-grid { grid-template-columns: 1fr; }
+  .brands-row-compact { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .two-col { grid-template-columns: 1fr; }
-  .steps-grid { grid-template-columns: 1fr; }
-  .steps-grid .step-card::after { display: none; }
 
   .cta-banner { flex-direction: column; align-items: flex-start; padding: 40px 32px; }
   .footer-top { flex-direction: column; }
