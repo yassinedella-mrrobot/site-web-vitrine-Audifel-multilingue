@@ -68,20 +68,21 @@ header {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  transition: background var(--transition), box-shadow var(--transition);
-  background: rgba(247, 245, 242, 0);
-}
-header.scrolled {
-  background: rgba(247, 245, 242, 0.92);
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--line);
+  transition: box-shadow var(--transition);
+}
+header.scrolled {
+  box-shadow: var(--shadow-md);
 }
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 32px;
+  padding: 14px 32px;
   max-width: 1200px;
   margin: 0 auto;
   gap: 20px;
@@ -97,7 +98,8 @@ header.scrolled {
   flex-shrink: 0;
   z-index: 110;
 }
-.logo-img { height: 46px; width: auto; display: block; }
+.logo-img { height: 58px; width: auto; display: block; transition: transform var(--transition); }
+.logo-img:hover { transform: scale(1.03); }
 
 /* ---- Desktop Nav Links ---- */
 nav.links {
@@ -124,14 +126,6 @@ nav.links a::after {
 }
 nav.links a:hover { color: var(--teal); }
 nav.links a:hover::after { width: 100%; }
-
-/* When header is on hero (transparent), make links white */
-header:not(.scrolled) nav.links a { color: rgba(255,255,255,0.8); }
-header:not(.scrolled) nav.links a:hover { color: #fff; }
-header:not(.scrolled) .nav-cta .btn-ghost { color: #fff; border-color: rgba(255,255,255,0.4); }
-header:not(.scrolled) .nav-cta .btn-ghost:hover { border-color: #fff; }
-header:not(.scrolled) .lang-btn { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.25); color: #fff; }
-header:not(.scrolled) .lang-btn:hover { border-color: rgba(255,255,255,0.6); }
 
 /* ---- Nav CTA ---- */
 .nav-cta {
@@ -739,37 +733,97 @@ html[dir="rtl"] .steps-grid .step-card:not(:last-child)::after {
 /* ==========================================================
    PARTNERS
    ========================================================== */
-.partners-row {
-  display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
-  justify-content: center;
+.partners-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
 }
-.partner-pill {
-  border: 1px solid var(--line);
+.brand-card {
   background: var(--white);
-  border-radius: 14px;
-  padding: 22px 40px;
-  font-family: 'Fraunces', serif;
-  font-weight: 600;
-  color: var(--ink-soft);
-  letter-spacing: 0.02em;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+}
+.brand-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--teal);
+}
+.brand-visual {
+  position: relative;
+  height: 230px;
+  background: #FAFAFA;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all var(--transition);
+  border-bottom: 1px solid var(--line);
 }
-.partner-pill:hover {
-  box-shadow: var(--shadow-sm);
-  border-color: var(--teal);
+.brand-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition);
 }
-.partner-img { height: 36px; max-width: 150px; width: auto; object-fit: contain; display: block; }
-.partners-note {
-  text-align: center;
-  font-size: 0.82rem;
+.brand-card:hover .brand-visual img {
+  transform: scale(1.05);
+}
+.brand-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.brand-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.brand-logo-img {
+  height: 30px;
+  max-width: 140px;
+  object-fit: contain;
+  display: block;
+}
+.brand-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--teal);
+  background: rgba(61,94,107,0.08);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.brand-body h3 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+.brand-body p {
   color: var(--ink-soft);
-  margin-top: 16px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 18px;
 }
+.brand-features {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+.brand-feat-pill {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
 
 /* ==========================================================
    CONTACT
@@ -875,7 +929,7 @@ footer {
   border-radius: 12px;
   margin-bottom: 16px;
 }
-.footer-logo-img { height: 44px; width: auto; display: block; }
+.footer-logo-img { height: 54px; width: auto; display: block; }
 .footer-tagline { max-width: 280px; font-size: 0.9rem; line-height: 1.6; }
 .footer-col h4 {
   font-size: 0.82rem;
@@ -911,6 +965,7 @@ html[dir="rtl"] .footer-col h4 { letter-spacing: 0; text-transform: none; }
 /* ---- Tablet ---- */
 @media (max-width: 1024px) {
   .solutions-grid { grid-template-columns: repeat(2, 1fr); }
+  .partners-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 860px) {
@@ -950,6 +1005,7 @@ html[dir="rtl"] .footer-col h4 { letter-spacing: 0; text-transform: none; }
   .ql-item:last-child { border-bottom: none; }
 
   .about-grid { grid-template-columns: 1fr; }
+  .partners-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .two-col { grid-template-columns: 1fr; }
   .steps-grid { grid-template-columns: 1fr; }
